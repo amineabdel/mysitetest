@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quotes Amine</title>
+  </head>
+  <body>
+    <h1>Authors</h1>
+    {% for author in authors %}
+    <a href="/{{author.id}}/">{{ author.author_name }}</a><br />
+    {% endfor %}
+    <form action="post_author/" method="post">
+      {% csrf_token %}
+      {{ author_form }}
+      <input type="submit" value="Submit Author"/>
+    </form>
+    <form action='post_quote/' method="post">
+      {% csrf_token %}
+      {{ quote_form }}
+      <input type="submit" value="Submit Quote"/>
+    </form>
+    <form action="search_quote" method="post">
+      {% csrf_token %}
+      <h2>
+        Get quotes containing:<br />
+        {{ search_quote_form}}
+      </h2>
+      <input type="submit" value="search"/>
+    </form>
+  </body>
+</html>

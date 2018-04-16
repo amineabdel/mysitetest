@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quotes</title>
+</head>
+<body>
+  {% if quotes %}
+  {% for quote in quotes %}
+  <p>
+    Author: {{quote.quote_author}}<br />
+    {{quote.quote_text}}
+  </p><br />
+
+  {% endfor %}
+  {% else %}
+  <p>
+    Search found no results.
+  </p>
+  {% endif %}
+</body>
+</html>
